@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Settings")]
     public Vector3 spawnPoint = new Vector3(-8f, 0f, 0f);
-    public float levelTimeLimit = 120f;
+    //public float levelTimeLimit = 120f;
 
     private int score = 0;
     private float timeRemaining;
@@ -39,14 +39,14 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             Debug.Log("=== DEBUG ===");
-            Debug.Log("Time: " + timeRemaining);
+            //Debug.Log("Time: " + timeRemaining);
             Debug.Log("Active: " + isGameActive);
             Debug.Log("Paused: " + isPaused);
             Debug.Log("TimeScale: " + Time.timeScale);
         }
 
         // Only update timer when game is active AND not paused
-        if (isGameActive && !isPaused)
+        /*if (isGameActive && !isPaused)
         {
             timeRemaining -= Time.deltaTime;
 
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
                 timeRemaining = 0;
                 GameOver();
             }
-        }
+        }*/
 
         // Restart input
         if (!isGameActive && Input.GetKeyDown(KeyCode.R))
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 
         // Reset all values
         score = 0;
-        timeRemaining = levelTimeLimit;
+        //timeRemaining = levelTimeLimit;
         isGameActive = true;
         isPaused = false;
 
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
 
         Debug.Log("Score: " + score);
-        Debug.Log("Timer: " + timeRemaining);
+        //Debug.Log("Timer: " + timeRemaining);
         Debug.Log("Active: " + isGameActive);
         Debug.Log("Paused: " + isPaused);
         Debug.Log("TimeScale: " + Time.timeScale);
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
     }
 
     public int GetScore() => score;
-    public float GetTimeRemaining() => timeRemaining;
+    //public float GetTimeRemaining() => timeRemaining;
     public bool IsGameActive() => isGameActive;
     public bool IsPaused() => isPaused;
 }

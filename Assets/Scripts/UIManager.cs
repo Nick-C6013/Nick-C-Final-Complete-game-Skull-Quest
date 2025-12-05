@@ -47,13 +47,13 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         // Update timer
-        if (timerText && GameManager.Instance != null)
+        /*if (timerText && GameManager.Instance != null)
         {
             float time = GameManager.Instance.GetTimeRemaining();
             int minutes = Mathf.FloorToInt(time / 60);
             int seconds = Mathf.FloorToInt(time % 60);
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        }
+        }*/
     }
 
     void OnDestroy()
