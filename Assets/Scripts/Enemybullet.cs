@@ -1,6 +1,7 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class Bullet : MonoBehaviour
+public class Enemybullet : MonoBehaviour
 {
     public float speed = 15f;
     public float lifetime = 3f;
@@ -21,12 +22,13 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Player"))
         {
-            Enemy enemy = collision.GetComponent<Enemy>();
-            if (enemy != null)
+            PlayerController player = collision.GetComponent<PlayerController>();
+            if (player != null)
             {
-                enemy.TakeDamage();
+                //enemy.TakeDamage();
+                Debug.Log("Hitting Player!");
             }
             Destroy(gameObject);
         }
