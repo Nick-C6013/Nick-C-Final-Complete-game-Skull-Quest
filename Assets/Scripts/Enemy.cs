@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public Transform Firepoint;
     public float Attackspeed;
     private float timer = 0;
+    public int attackDamage = 1;
     void Start()
     {
 
@@ -68,7 +69,7 @@ public class Enemy : MonoBehaviour
             PlayerController player = collision.GetComponent<PlayerController>();
             if (player != null)
             {
-                player.TakeDamage();
+                player.TakeDamage(attackDamage);
             }
         }
     }

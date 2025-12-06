@@ -26,13 +26,17 @@ public class PlayerController : MonoBehaviour
     private PlayerState currentState;
 
     public GameObject playerobject;
-    private bool isfacingright; 
+    private bool isfacingright;
+    public int maxhealth = 3;
+    private int healthamount = 1;
+
     void Start()
     {
         if (rb == null) rb = GetComponent<Rigidbody2D>();
         if (animator == null) animator = GetComponent<Animator>();
         if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
-
+        healthamount = maxhealth;
+        print(healthamount);
         ChangeState(new IdleState());
     }
 
@@ -59,6 +63,14 @@ public class PlayerController : MonoBehaviour
                 isfacingright = false;
             }
             //return; // Skip all input when paused
+        }
+
+        if (healthamount <= 0)
+        {
+            print(healthamount);
+            GameManager.Instance.PlayerDied();
+            Respawn();
+            
         }
 
         if (currentState != null)
@@ -103,16 +115,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
+    /*public void TakeDamage()
     {
         GameManager.Instance.PlayerDied();
         Respawn();
-    }
+    }*/
 
     void Respawn()
     {
         transform.position = GameManager.Instance.spawnPoint;
         ChangeState(new IdleState());
+        healthamount = maxhealth;
     }
 
     public string GetCurrentStateName()
@@ -124,4 +137,11 @@ public class PlayerController : MonoBehaviour
     {
         return isfacingright;
     }
+    public void TakeDamage(int damage)
+    {
+        healthamount -= damage;
+        //healthbar.fillAmount = healthamount / 99f;
+    }
+
+    public int getCurrentHealth() => healthamount;
 }

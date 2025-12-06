@@ -1,32 +1,23 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
     public Image healthbar;
-    public float healthamount = 99f;
+    public GameObject Player;
+    private PlayerController playerController;
     void Start()
     {
-
+        playerController = Player.GetComponent<PlayerController>();
     }
 
     void Update()
     {
-        if (healthamount <= 0)
-        {
-            GameManager.Instance.PlayerDied();
-            Respawn();
-        }
-    }
-    void Respawn()
-    {
-        transform.position = GameManager.Instance.spawnPoint;
-        
-    }
 
-    public void TakeDamage(float damage)
-    {
-        healthamount -= damage;
-        healthbar.fillAmount = healthamount / 99f;
+        float fillAmount = (float)playerController.getCurrentHealth() / (float)playerController.maxhealth;
+        healthbar.fillAmount = fillAmount;
     }
+   
+    
 }

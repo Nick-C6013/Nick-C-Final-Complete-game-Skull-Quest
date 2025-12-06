@@ -29,6 +29,7 @@ public class Enemybullet : MonoBehaviour
             {
                 //enemy.TakeDamage();
                 Debug.Log("Hitting Player!");
+                player.TakeDamage(1);
             }
             Destroy(gameObject);
         }
