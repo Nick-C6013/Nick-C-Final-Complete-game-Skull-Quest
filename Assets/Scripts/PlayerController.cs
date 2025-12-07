@@ -68,8 +68,8 @@ public class PlayerController : MonoBehaviour
         if (healthamount <= 0)
         {
             print(healthamount);
-            GameManager.Instance.PlayerDied();
-            Respawn();
+            //GameManager.Instance.PlayerDied();
+            GameManager.Instance.GameOver();
             
         }
 
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             bullet.GetComponent<Bullet>().direction = Mathf.Sign(transform.localScale.x);
-            //AudioManager.Instance.PlayShootSound();
+            AudioManager.Instance.PlayShootSound();
         }
     }
 
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         healthamount -= damage;
-        //healthbar.fillAmount = healthamount / 99f;
+
     }
 
     public int getCurrentHealth() => healthamount;
