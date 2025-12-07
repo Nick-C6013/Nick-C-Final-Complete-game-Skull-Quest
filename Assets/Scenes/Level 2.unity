@@ -4475,7 +4475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthbar: {fileID: 1214476291}
-  Player: {fileID: 0}
+  Player: {fileID: 1337363323}
 --- !u!1 &1051595594
 GameObject:
   m_ObjectHideFlags: 0
@@ -7727,6 +7727,10 @@ PrefabInstance:
     - target: {fileID: 1103865240676213904, guid: 56f8a1590e2f3af43b27f1a1f4a4ec5b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303126225858993668, guid: 56f8a1590e2f3af43b27f1a1f4a4ec5b, type: 3}
+      propertyPath: attackDamage
+      value: 999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

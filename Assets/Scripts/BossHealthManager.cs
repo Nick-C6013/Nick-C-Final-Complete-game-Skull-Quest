@@ -1,16 +1,19 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class BossHealthManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Image BossHealth;
+    public GameObject Boss;
+    private BossController bossController; 
     void Start()
     {
-        
+        bossController = Boss.GetComponent<BossController>(); 
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        float fillAmount = (float)bossController.getCurrentHealth() / (float)bossController.maxhealth;
+        BossHealth.fillAmount = fillAmount;
     }
 }

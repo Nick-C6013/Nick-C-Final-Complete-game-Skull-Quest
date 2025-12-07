@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Boss : MonoBehaviour
+public class BossController : MonoBehaviour
 {
     [Header("Combat")]
     public GameObject bulletPrefab;
@@ -8,11 +8,13 @@ public class Boss : MonoBehaviour
     public float[] Attackspeed;
     public float[] timer;
     public int attackDamage = 1;
-
+    public int maxhealth = 100;
+    private int healthamount = 1;
 
 
     void Start()
     {
+        healthamount = maxhealth;
     }
 
 
@@ -44,7 +46,7 @@ public class Boss : MonoBehaviour
                 GameObject bullet = Instantiate(bulletPrefab, Firepoint[index].position, Quaternion.identity);
                 bullet.GetComponent<Enemybullet>().direction = Mathf.Sign(transform.localScale.x);
                 //AudioManager.Instance.PlayShootSound();
-                if (index == 1) 
+                if (index == 1)
                 {
                     bullet.transform.localScale *= 8;
                     bullet.GetComponent<CircleCollider2D>().radius *= 6;
@@ -67,5 +69,12 @@ public class Boss : MonoBehaviour
         }
     }
 
-}     
 
+    public void TakeDamage(int damage)
+    {
+        healthamount -= damage;
+
+    }
+
+    public int getCurrentHealth() => healthamount;
+}

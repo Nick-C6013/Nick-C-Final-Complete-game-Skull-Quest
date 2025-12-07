@@ -30,7 +30,15 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject);
         }
-
+        if (collision.CompareTag("Boss"))
+        {
+            BossController boss = collision.GetComponent<BossController>();
+            if (boss != null)
+            {
+                boss.TakeDamage(1);
+            }
+            Destroy(gameObject);
+        }
         if (collision.CompareTag("Ground") || collision.CompareTag("Wall"))
         {
             Destroy(gameObject);
