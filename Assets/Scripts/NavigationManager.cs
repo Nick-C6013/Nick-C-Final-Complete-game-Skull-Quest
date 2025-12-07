@@ -23,12 +23,13 @@
     public void OnBossLevel()
     {
         SceneManager.LoadScene("Title Screen");
+        print("Working Order");
     }
     public void OnQuitButton()
     {
         Application.Quit();
     }
 
-    // Add other methods for options, etc.
+    
 }  
 
