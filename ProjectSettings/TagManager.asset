@@ -9,6 +9,7 @@ TagManager:
   - Goal
   - Bullet
   - Wall
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - enemy
   - Interactable
   - Wall
-  - 
+  - Boss
   - 
   - 
   - 

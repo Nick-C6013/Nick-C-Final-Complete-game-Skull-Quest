@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossController : MonoBehaviour
@@ -35,6 +36,10 @@ public class BossController : MonoBehaviour
         Fire(0);
         Fire(1);
         Fire(2);
+        if (healthamount <= 0)
+        {
+            Destroy(gameObject);
+        }
 
     }
     public void Fire(int index)
@@ -77,4 +82,8 @@ public class BossController : MonoBehaviour
     }
 
     public int getCurrentHealth() => healthamount;
+
+    
+
+
 }
