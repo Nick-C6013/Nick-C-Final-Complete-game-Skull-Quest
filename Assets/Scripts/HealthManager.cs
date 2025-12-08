@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class HealthManager : MonoBehaviour
 {
     public Image healthbar;
+    public Image cooldownbar;
     public GameObject Player;
     private PlayerController playerController;
     void Start()
@@ -17,6 +18,12 @@ public class HealthManager : MonoBehaviour
 
         float fillAmount = (float)playerController.getCurrentHealth() / (float)playerController.maxhealth;
         healthbar.fillAmount = fillAmount;
+
+        if (!playerController.getCanshield())
+        { 
+        cooldownbar.fillAmount = playerController.getcooldown() / playerController.delay;
+        }
+
     }
    
     

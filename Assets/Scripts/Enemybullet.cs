@@ -34,7 +34,7 @@ public class Enemybullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.CompareTag("Ground") || collision.CompareTag("Wall"))
+        if (collision.CompareTag("Ground") || collision.CompareTag("Wall") || collision.CompareTag("Shield"))
         {
             Destroy(gameObject);
         }

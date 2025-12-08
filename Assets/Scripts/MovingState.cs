@@ -40,7 +40,13 @@ public class MovingState : PlayerState
         {
             player.Fire();
         }
+        if (Input.GetKeyDown(KeyCode.E) && player.getCanshield())
+        {
+            player.Shield();
+            player.setCanShield(false);
+        }
     }
+
 
     public override void ExitState(PlayerController player) { }
 

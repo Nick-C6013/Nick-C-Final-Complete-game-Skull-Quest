@@ -10,6 +10,13 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+    [Header("Shield")]
+    public GameObject ShieldPrefab;
+    public Transform Shieldpoint;
+    public float delay = 20f;
+    private float cooldown = 0f;
+    private bool Canshield = true;
+
     [Header("Ground Check")]
     public Transform groundCheck;
     public LayerMask groundLayer;
@@ -78,6 +85,16 @@ public class PlayerController : MonoBehaviour
             currentState.UpdateState(this);
             animator.SetFloat("walk", Mathf.Abs(rb.linearVelocity.x));
         }
+
+        if (!Canshield)
+        {
+            cooldown += Time.deltaTime;
+            if (cooldown >= delay)
+            {
+                Canshield = true;
+                cooldown = 0;                
+            }
+        }
     }
 
     public void ChangeState(PlayerState newState)
@@ -114,7 +131,15 @@ public class PlayerController : MonoBehaviour
             AudioManager.Instance.PlayShootSound();
         }
     }
-
+    public void Shield()
+    {
+        if (ShieldPrefab != null && Shieldpoint != null)
+        {
+            print("Spawning Shield");
+            GameObject shield = Instantiate(ShieldPrefab, Shieldpoint.position, Quaternion.identity);
+            shield.transform.SetParent(Shieldpoint);
+        }
+    }
     /*public void TakeDamage()
     {
         GameManager.Instance.PlayerDied();
@@ -144,4 +169,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public int getCurrentHealth() => healthamount;
+
+    public bool getCanshield() => Canshield;
+    public void setCanShield(bool value) => Canshield = value;
+    public float getcooldown() => cooldown;
 }
