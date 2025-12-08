@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip enemyDefeatedSound;
     public AudioClip powerUpSound;
     public AudioClip coinSound;
+    public AudioClip EnemyShootSound;
+    public AudioClip ShieldActivateSound;
 
     void Awake()
     {
@@ -54,6 +56,9 @@ public class AudioManager : MonoBehaviour
     public void PlayJumpSound() => PlaySFX(jumpSound);
     public void PlayShootSound() => PlaySFX(shootSound);
     public void PlayCoinSound() => PlaySFX(coinSound);
+
+    public void PlayEnemyShootSound() => PlaySFX(EnemyShootSound);
+    public void PlayShieldSound() => PlaySFX(ShieldActivateSound);
 
     public void PlaySFX(AudioClip clip)
     {

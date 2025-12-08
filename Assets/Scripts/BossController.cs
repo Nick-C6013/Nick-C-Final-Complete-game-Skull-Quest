@@ -50,7 +50,7 @@ public class BossController : MonoBehaviour
             {
                 GameObject bullet = Instantiate(bulletPrefab, Firepoint[index].position, Quaternion.identity);
                 bullet.GetComponent<Enemybullet>().direction = Mathf.Sign(transform.localScale.x);
-                //AudioManager.Instance.PlayShootSound();
+                AudioManager.Instance.PlayEnemyShootSound();
                 if (index == 1)
                 {
                     bullet.transform.localScale *= 8;

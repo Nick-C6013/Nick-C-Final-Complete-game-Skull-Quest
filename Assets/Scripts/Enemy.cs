@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
             {
                 GameObject bullet = Instantiate(bulletPrefab, Firepoint.position, Quaternion.identity);
                 bullet.GetComponent<Enemybullet>().direction = Mathf.Sign(transform.localScale.x);
-                //AudioManager.Instance.PlayShootSound();
+                AudioManager.Instance.PlayEnemyShootSound();
             }
             timer = 0;
         }
