@@ -1,5 +1,7 @@
 Game Title: Skull Quest
 
+Video: https://www.youtube.com/watch?v=o3Ja-Zwrvw4
+
 Genre: 2D platformer
 
 Platform: Windows, Linux
