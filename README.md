@@ -15,6 +15,8 @@ Installation: Extract files, open "Assignment Games" folder and click "Game360_T
 Controls: A to go left, D to go right, Space to jump, and E to shield(Boss level only)
 From level 2 onward you gain the ability to wall jump.
 
+IMPORTANT: Click on the text in the victory panel to advance to next level.
+
 Core Mechanics:
 - Jumping/Wall jumping
 - Shooting
