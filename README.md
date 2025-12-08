@@ -2,6 +2,8 @@ Game Title: Skull Quest
 
 Video: https://www.youtube.com/watch?v=o3Ja-Zwrvw4
 
+Itch.io: https://n-cooper.itch.io/skull-quest
+
 Genre: 2D platformer
 
 Platform: Windows, Linux
